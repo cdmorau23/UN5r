@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+#imagen{
+    background: url(assets/img/Dieta-saludable.jpg) no-repeat center top;
+    background-size: auto auto;
+    height: 400px;
+    margin-top: 15px;
+}
+
+#info-local{
+    height: 400px;
+    margin-top:15px;
+    background-color: orange;
+    text-align: center;
+}
+
+.imgRedonda {
+    width:150px;
+    height:150px;
+    border-radius:150px;
+    margin-top: 40px;
+}
+
+#nombre{
+    font-size: 30px;
+    margin-top:30px;
+    font-weight: 510;
+}
+
+#slogan{
+    font-size: 20px;
+}
+
+#titulo{
+    text-align: center;
+    margin-top: 15px;
+
+}
+
+hr {
+    margin-top:0px;
+    border: 5px solid black;
+    border-radius: 5px;
+    background-color: black;
+  }
+.card {
+    margin: 20px 0 0 0;
+}

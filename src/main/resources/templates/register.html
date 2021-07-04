@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/register.css">
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="principal.html">Principal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Ingresar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Registrarse</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container">
+    <h1>Registro</h1>
+    <h2>Por favor llene todos los campos:</h2>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <input type="text" placeholder="Primer nombre" required>
+          </div>
+          <div class="input-box">
+            <input type="text" placeholder="Primer apellido" required>
+          </div>
+        </div>
+        <div class="user-details-email">    
+          <div class="input-box">
+            <input type="text" placeholder="Direccion de email" required>
+          </div>
+        </div>
+        <div class="user-details">
+          <div class="input-box">
+            <input type="text" placeholder="contraseña" required>
+          </div>
+          <div class="input-box">
+            <input type="text" placeholder="Confirma tu contraseña" required>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Registrarse">
+        </div>
+        <a class="sicue" href="login.html">Ya tienes una cuenta?</a>
+        <a class= "olvcon" href="#">Olvidaste tu contraseña?</a>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
