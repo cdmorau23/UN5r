@@ -15,6 +15,12 @@ import java.util.Optional;
 
 @Service
 public class ProductoRepository implements ProductRepository {
+
+    @Override
+    public Optional<Product> getProductooo(int productId) {
+        return productoCrudRepository.findById(productId).map(producto -> mapper.toProduct(producto));
+    }
+
     @Autowired
     private ProductoCrudRepository productoCrudRepository;
 

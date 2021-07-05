@@ -30,10 +30,15 @@ public class ProductService {
     }
 
     public boolean delete(int productId) {
-        return getProduct(productId).map(product -> {
+        return getProductooo(productId).map(product -> {
             productRepository.delete(productId);
             return true;
         }).orElse(false);
     }
+
+    public Optional<Product> getProductooo(int productId) {
+        return productRepository.getProductooo(productId);
+    }
+
 
 }
