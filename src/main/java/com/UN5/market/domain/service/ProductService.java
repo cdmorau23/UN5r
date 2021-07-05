@@ -29,11 +29,11 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    /*public boolean delete(int productId) {
+    public boolean delete(int productId) {
         return getProduct(productId).map(product -> {
             productRepository.delete(productId);
             return true;
         }).orElse(false);
     }
-     */
+
 }
