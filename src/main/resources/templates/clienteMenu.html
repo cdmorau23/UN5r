@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cliente</title>
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/cliente.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/cliente.css}">
 
 </head>
 <body>
@@ -36,7 +36,7 @@
       <div class="col-7" id="imagen">
       </div>
       <div class="col-5" id="info-local">
-        <img src="../assets/img/logo_el_corral_despues.jpg" class="imgRedonda">
+        <img th:src="@{/assets/img/logo_el_corral_despues.jpg}" class="imgRedonda">
         <h2 id="nombre" th:text="${restaurante.noombrerest}"></h2>
         <p id="slogan" th:text="${restaurante.sloganrest}"></p>
       </div>
@@ -46,39 +46,39 @@
   </div>
   <!--Titulo de productos-->
 
-  <div class="container">
-    <div class="row">
-      <div class="col-12" id="titulo">
-        <h1>Nuestros productos</h1>
-        <hr>
+      <div class="head-menu">
+        <h1 class="">Nuestro Menú</h1>
+        <div></div>
       </div>
-    </div>
-  </div>
 
 
   <!--Productos-->
+      <div class="container">
+        <div class="row row-cols-sm-1 row-cols-md-1 row-cols-lg-2 g-4">
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-12" th:each="producto:${productos}">
-        <div class="card" style="width: 18rem;">
-          <img src="../assets/img/combo-mixta-artesanal_1024x1024.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" th:text="${producto.name}"></h5>
-            <p class="card-text" th:text="${producto.description}"></p>
-            <hr>
-            <p class="card-text" th:text="'Precio: ' + ${producto.price}"></p>
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" th:attr="data-bs-target='#'+${producto.productId}">Agregar</a>
+          <div class="col" th:each="producto:${productos}">
+            <div class="card mb-3" style="max-width: 1000px;">
+              <div class="row g-0">
+                <div class="col-md-3">
+                  <img th:src="@{/assets/img/combo-mixta-artesanal_1024x1024.png}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-7 align-self-center">
+                  <div class="card-body">
+                    <h5 class="card-title" th:text="${producto.name}"></h5>
+                    <p class="" th:text="${producto.description}"></p>
+                  </div>
+                </div>
+                <div class="col-md-2 align-self-center">
+                  <h5 th:text="'$'+ ${producto.price}"></h5>
+                  <button class="add-btn">Agregar</button>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
-
-        <!--modal de producto-->
-
-
       </div>
-    </div>
-  </div>
+
   <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

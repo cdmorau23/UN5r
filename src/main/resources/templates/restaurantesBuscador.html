@@ -19,6 +19,8 @@
 
     <!-- General Styles -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <link rel="stylesheet" th:href="@{/css/buscadorRestaurantes.css}">
     <style type="text/css">
         .container-fluid {
             border-top: 1px solid #E1E1E1;
@@ -87,26 +89,25 @@
         </div>
     </div>
 
+    <div class="container-fluid">
+        <div class="row">
 
-    <div class="container-cards full-box" style="padding-bottom: 40px;" >
-
-        <div class="card shadow-1-strong" th:each="restaurante: ${restaurantes}">
-            <img class="card-img-top" th:src="@{/assets/platillos/platillo.jpg}" alt="nombre_restaurante">
-            <div class="card-body text-center">
-                <h5 class="card-title font-weight-bold" th:text="${restaurante.noombrerest}"></h5>
-
+            <div class="col-md-4" th:each="restaurante:${restaurantes}">
+                <div class="restaurant-card text-center"><img th:src="@{/assets/platillos/platillo.jpg}" class="img-fluid">
+                    <div class="restaurant-content">
+                        <div class="restaurant-name"th:text="${restaurante.noombrerest}"></div>
+                        <div class="restaurant-slogan" th:text="${restaurante.sloganrest}"></div>
+                        <a th:href="@{'/productos.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" class="card-buttons"> &nbsp; Ingresar</a>
+                        &nbsp; &nbsp;
+                        <a th:href="@{'/localDatosBuscador.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" class="card-buttons"><i class="fas fa-utensils fa-fw"></i> &nbsp; Detalles</a>
+                    </div>
+                </div>
             </div>
-            <div class="card-body text-center">
-                <a th:href="@{'/productos.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" class="btn btn-info btn-sm"> &nbsp; Ingresar</a>
-                &nbsp; &nbsp;
-                <a th:href="@{'/localDatosBuscador.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" class="btn btn-info btn-sm"><i class="fas fa-utensils fa-fw"></i> &nbsp; Detalles</a>
-            </div>
+
         </div>
-
     </div>
-
-
 </div>
+
 <!-- En esta parte va la busqueda del restaurante-->
 <!-- Modal -->
 <div class="modal fade" id="saucerModal" tabindex="-1" aria-hidden="true" aria-labelledby="saucerModalLabel" >
