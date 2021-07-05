@@ -19,6 +19,8 @@
 
     <!-- General Styles -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <link rel="stylesheet" th:href="@{/css/pedidos.css}">
     <style type="text/css">
         .container-fluid {
             border-top: 1px solid #E1E1E1;
@@ -81,23 +83,35 @@
 <div class="container container-web-page">
     <h3 class="font-weight-bold poppins-regular text-uppercase">Pedidos</h3>
     <hr>
-    <div class="container-cards full-box" style="padding-bottom: 40px;">
 
-        <div class="card shadow-1-strong" th:each="pedido:${pedidos}">
-            <img class="card-img-top" th:src="@{/assets/platillos/pedidos.jpg}" alt="nombre_platillo">
-            <div class="card-body text-center">
-                <h5 class="card-title font-weight-bold" th:text="'Pedido: ' + ${pedido.purchaseId}"></h5>
+    <div class="container-fluid">
+        <div class="row">
 
-                <p class="card-text lead"><span class="badge bg-secondary" th:text="'Metodo de pago: '+ ${pedido.paymentMethod}"></span></p>
-                <p class="card-text lead"><span class="badge bg-success" th:text="'Mesa '+ ${pedido.table}"></span></p>
-                <p class="card-text lead"><span class="badge bg-danger" th:text="'Hora ' + ${pedido.date}"></span></p>
+            <div class="col-md-4" th:each="pedido:${pedidos}">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-text">
+                        <span class="date" th:text="${pedido.date}"></span>
+                        <h2 th:text="'Pedido ' + ${pedido.purchaseId}"></h2>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="value" th:text="${pedido.table}"></div>
+                            <div class="type">Mesa</div>
+                        </div>
+                        <div class="stat border">
+                            <div class="value" th:text="'$' + ${pedido.paymentMethod}"></div>
+                            <div class="type">Costo total</div>
+                        </div>
+                        <div class="stat details">
+                            <i class="fas fa-hand-pointer fa-2x"></i>
+                            <a th:href="@{'/pedidoDetalles.html/'+ ${usuario.adminId} + '/' + ${restaurante.idrest} + '/' + ${pedido.purchaseId}}" class="detalles type my-3">Mas detalles</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-body text-center">
 
-                <a th:href="@{'/pedidoDetalles.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest} + '/' +     ${pedido.purchaseId}}" class="btn btn-info btn-sm"><i class="fas fa-utensils fa-fw"></i> &nbsp; Detalles</a>
-            </div>
         </div>
-
     </div>
 
 

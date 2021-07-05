@@ -1,16 +1,7 @@
-/* Pedidos Cards*/
-.all-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    margin-top: 10%;
-    row-gap: 5%;
-}
-
 .card {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr 100px;
+    grid-template-rows: 300px 1fr 1fr;
     grid-template-areas:
     "image"
     "text "
@@ -29,10 +20,9 @@
     width: 1fr;
     height: 550px;
 }
-
 .card-image {
     grid-area: image;
-    background: url("assets/img/4-46544_food-hd.jpg");
+    background: url("assets/img/banner_2.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
@@ -46,11 +36,6 @@
     color: rgb(128, 91, 16);
     font-size: 13px;
 }
-.card-text p {
-    color: grey;
-    font-size: 15px;
-    font-weight: 300;
-}
 .card-text h2 {
     margin-top: 0px;
     font-size: 28px;
@@ -62,10 +47,10 @@
     grid-template-rows: 1fr;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: rgb(57, 82, 18);
+    background: rgb(164, 126, 27);
 }
 .card-stats .stat {
-    padding: 3px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,6 +73,7 @@
     font-weight: 300;
     text-transform: uppercase;
 }
+
 .fas{
     margin-top:10px;
 }
