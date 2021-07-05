@@ -6,8 +6,6 @@ import com.UN5.market.domain.service.ProductService;
 import com.UN5.market.domain.service.PurchaseService;
 import com.UN5.market.domain.service.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -114,7 +112,7 @@ public class WebAdminController {
         Rest restaurante= RestService.getRest(restId);
         model.addAttribute("usuario",usuario);
         model.addAttribute("restaurante",restaurante);
-        return "cuentaBuscador";
+        return "cuenta";
     }
 
 }
