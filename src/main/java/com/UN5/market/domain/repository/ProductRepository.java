@@ -9,7 +9,6 @@ import java.util.Optional;
 public interface ProductRepository {
     List<Product> getAll();
     List<Product> getByRest(int restId);
-    Optional<Product> getProductooo(int productId);
     Product getProduct(int productId);
     Product save(Product product);
     void delete(int productId);
