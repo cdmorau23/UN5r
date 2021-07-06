@@ -106,13 +106,6 @@ public class WebAdminController {
         return "localDatos";
     }
 
-    @GetMapping ("/cuenta.html/{AdminId}/{RestId}")
-    public String cuentaAdmin(@PathVariable("AdminId") int adminId,@PathVariable("RestId") int restId, Model model){
-        Admin usuario = adService.getAdministrador(adminId);
-        Rest restaurante= RestService.getRest(restId);
-        model.addAttribute("usuario",usuario);
-        model.addAttribute("restaurante",restaurante);
-        return "cuenta";
-    }
+
 
 }

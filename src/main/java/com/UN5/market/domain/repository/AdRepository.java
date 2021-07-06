@@ -8,8 +8,9 @@ import java.util.Optional;
 
 public interface AdRepository {
     Admin getAdmin(int adminId);
-    Admin save(Admin admin);
+    int save(Admin admin);
     void delete(int adminId);
+    void updateAdmin(int adminId,String name,String email,String password);
 
     /*metodos necesarios:
     -Obtener admin por su nombre y contraseña para el login

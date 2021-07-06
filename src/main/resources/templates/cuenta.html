@@ -20,6 +20,8 @@
     <!-- General Styles -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
+    <link rel="stylesheet" th:href="@{/css/cuenta.css}">
+
 </head>
 
 <body>
@@ -58,7 +60,7 @@
                 </div>
                 <span class="poppins-regular font-weight-bold" th:text="${usuario.adminname}"></span>
                 <div class="text-center full-box">
-                    <a th:href="@{'/cuenta.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" class="btn btn-info btn-sm w-100"><i class="fas fa-user-cog fa-fw"></i> &nbsp; Mi cuenta</a>
+                    <a href="#" class="btn btn-info btn-sm w-100"><i class="fas fa-user-cog fa-fw"></i> &nbsp; Mi cuenta</a>
                 </div>
 
                 <form class="full-box" action="">
@@ -75,74 +77,113 @@
 <div class="container container-web-page">
     <h3 class="font-weight-bold poppins-regular text-uppercase">Identificacion Usuario</h3>
     <hr>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-lg-5">
-                <!--cover-->
-                <figure class="full-box">
-                    <img class="img-fluid" th:src="@{/assets/img/user01.png}" alt="Usuario">
-                </figure>
 
-            </div>
-            <div class="col-12 col-lg-7">
+    <div class="container">
+        <div class="card">
 
+            <div class="additional" id="additional">
+                <div class="user-card">
 
-                <!-- Modificar cuenta -->
-                <form class="div-bordered" action="" style="padding: 15px;" >
-                    <fieldset id="campo" disabled="true">
+                    <div th:if="${param.success}">
+                        <dialog id="ms" open>
+                            <p>Has actualizado tu cuenta correctamente</p>
+                            <button class="btn btn-raised btn-primary btn-sm w-100" id="close" onclick="document.getElementById('ms').close()">Ok!</button>
+                        </dialog>
+                    </div>
 
-                        <div class="form-input mb-4" >
+                    <div class="col-12 col-lg-5">
+                        <!--cover-->
+                        <figure class="full-box">
+                            <img class="perfilimg center img-fluid" th:src="@{/assets/img/user01.png}" alt="Usuario">
+                        </figure>
 
-                            <span class="text-info lead font-weight-bold">Nombre:</span>
+                    </div>
+                </div>
+                <div class="more-info">
+
+                    <!-- Funcionalidad de actualizacion de datos de usuario -->
+                    <h1>Actualización de usuario</h1>
+                    <form th:action="@{'/cuenta.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" th:object="${usuario}" method="POST" >
+                        <div class="form-group mb-4" >
+
+                            <label for="name" class="text-light lead font-weight-bold">Nombre:</label>
                             <input type="text"  value="" class="form-control text-center"
-                                   id="InNameAccount" th:placeholder="${usuario.adminname}" required="" pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Nombre y Apellido" >
+                                   th:field="*{adminname}" id="name" th:placeholder="${usuario.adminname}" required pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Nombre y Apellido" >
 
                         </div>
 
-                        <div class="form-input mb-4">
+                        <div class="form-group mb-4">
 
-                            <span class="text-info lead font-weight-bold">Correo electrónico:</span>
+                            <label for="email" class="text-light lead font-weight-bold">Correo electrónico:</label>
 
                             <input type="text" value="" class="form-control text-center"
-                                   id="inp_correo" th:placeholder="${usuario.admincorreo}" required="" pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ@. ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="escribir correo" >
+                                   th:field="*{admincorreo}" id="email" th:placeholder="${usuario.admincorreo}" required pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ@. ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="escribir correo" >
 
                         </div>
 
-                        <div class="form-input mb-4">
+                        <div class="form-group mb-4">
 
-                            <span class="text-info lead font-weight-bold">Contraseña:</span>
+                            <label for="password" class="text-light lead font-weight-bold">Contraseña:</label>
 
                             <input type="text" value="" class="form-control text-center"
-                                   id="inpContraseña" th:placeholder="${usuario.admincontrasenia}" required="" pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="escribir contraseña" >
+                                   th:field="*{admincontrasenia}" id="password" th:placeholder="${usuario.admincontrasenia}" required pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="escribir contraseña" >
 
                         </div>
-                    </fieldset>
+
+                        <input type="hidden" th:field="*{adminId}">
+
+                        <div class="row">
+                            <div class="col-6 col-md-6 text" >
+
+                                <button type="submit" id="confirmar_actualizar" class="btn btn-info btn-sm btn-success" >confirmar actualizacion</button>
+                            </div>
+
+                            <div class="col-6 col-md-6 text" >
+
+                                <input type="button" id="volver"
+                                       onclick="document.getElementById('additional').style.width='40%';" class="btn btn-danger btn-sm" value="volver"></input>
+                            </div>
+                        </div>
+                    </form>
 
 
-                    <div class="form-input mb-4">
 
-                        <span class="text-info lead font-weight-bold">Identificacion en la pagina:</span>
+                </div>
+            </div>
 
-                        <input type="text" value="" class="form-control text-center"
-                               id="inp_user" disabled="true" th:placeholder="${usuario.adminId}" required="" pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="escribir usuario" >
+            <!--Datos de perfil del usuario-->
+            <div class="general">
+                <h1>Datos de usuario</h1>
+
+                <span class="text-dark lead font-weight-bold">Nombre:</span>
+                <p class="dato" th:text="${usuario.adminname}"></p>
+
+                <span class="text-dark lead font-weight-bold">Correo electrónico:</span>
+                <p class="dato" th:text="${usuario.admincorreo}"></p>
+
+                <span class="text-dark lead font-weight-bold">Contraseña:</span>
+                <p class="dato" th:text="${usuario.admincontrasenia}"></p>
+
+                <span class="text-dark lead font-weight-bold">Identificacion en la pagina:</span>
+                <p class="dato" th:text="${usuario.adminId}"></p>
+
+                <div class="row">
+                    <div class="col-6 col-md-6 text" >
+
+                        <button onclick="document.getElementById('additional').style.width='100%'" id="actualizar" class="btn btn-info btn-sm"><i class="fas fa-sync fa-fw" title="Ver actualizacion de cliente"></i> &nbsp; Actualizar</button>
                     </div>
-
-                    <div class="row">
-
-                        <div class="col-12 col-md-6 text" >
-
-                            <button type="submit" id="actualizar"
-                                    onclick="document.getElementById('campo').disabled = false" class="btn btn-info btn-sm"><i class="fas fa-sync fa-fw" title="Actualice datos del restaurante"></i> &nbsp; Actualizar</button>
-                        </div>
-                        <div class="col-12 col-md-6 text">
-                            <a th:href="@{/login.html}" class="btn btn-raised btn-primary btn-sm w-100" title="cerrar sesion"><i class="fas fa-door-open fa-fw"></i> &nbsp; Cerrar sesión</a>
-                        </div>
+                    <div class="col-6 col-md-6 text">
+                        <a th:href="@{/login.html}"class="btn btn-raised btn-primary btn-sm w-100" title="cerrar sesion"><i class="fas fa-door-open fa-fw"></i> &nbsp; Cerrar sesión</a>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
+
     </div>
+
 </div>
+
+
 
 
 <!-- Footer -->
@@ -150,7 +191,6 @@
     <div class="container">
     </div>
 </footer>
-
 
 <!-- MDBootstrap V5 -->
 <script th:src="@{/js/mdb.min.js}" ></script>
@@ -160,5 +200,6 @@
 
 <!-- General scripts -->
 <script th:src="@{/js/main.js}" ></script>
+
 </body>
 </html>

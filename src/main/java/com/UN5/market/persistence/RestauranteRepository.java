@@ -1,6 +1,5 @@
 package com.UN5.market.persistence;
 
-import com.UN5.market.domain.AdminRest;
 import com.UN5.market.domain.Rest;
 import com.UN5.market.domain.repository.RestRepository;
 import com.UN5.market.persistence.crud.RestauranteCrudRepository;
@@ -43,7 +42,7 @@ public class RestauranteRepository implements RestRepository {
 
     @Override
     public List<Rest> adminRests(int adminId) {
-        Set<Restaurante> restaurantes= adminJpaRepository.getOne(adminId).getRestaurantes();
+        List<Restaurante> restaurantes= adminJpaRepository.getOne(adminId).getRestaurantes();
         return mapper.toRests(restaurantes);
     }
 }
