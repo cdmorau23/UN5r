@@ -18,12 +18,12 @@ public class AdController {
         return adService.getAdministrador(AdID);
     }
 
-
+    /*
     @PostMapping("/save")
     public ResponseEntity<Admin> save(@RequestBody Admin admin){
         return new ResponseEntity<>(adService.save(admin), HttpStatus.CREATED);
     }
-    /*@DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable("id") int adID){
         if( adService.delete(adID)){
             return new ResponseEntity(HttpStatus.OK);

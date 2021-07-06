@@ -1,6 +1,5 @@
 package com.UN5.market.domain.repository;
 
-import com.UN5.market.domain.AdminRest;
 import com.UN5.market.domain.Rest;
 
 import java.util.List;

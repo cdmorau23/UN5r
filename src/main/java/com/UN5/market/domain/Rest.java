@@ -8,7 +8,6 @@ public class Rest {
     private String sloganrest;
     private String QRRest;
     private int totalTablerest;
-    private List<Admin> Adminrest;
 
     public String getQRRest() {
         return QRRest;
@@ -50,12 +49,5 @@ public class Rest {
         this.totalTablerest = totalTablerest;
     }
 
-    public List<Admin> getAdministradores() {
-        return Adminrest;
-    }
-
-    public void setAdministradores(List<Admin> administradores) {
-        this.Adminrest = administradores;
-    }
 }
 

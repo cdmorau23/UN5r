@@ -20,13 +20,12 @@ public interface RestMapper {
             @Mapping(source = "totalMesas", target = "totalTablerest")
 
 
-
     })
     Rest toRest(Restaurante restaurante);
-    List<Rest> toRests(Set<Restaurante> restaurantes);
+    List<Rest> toRests(List<Restaurante> restaurantes);
     @InheritInverseConfiguration
     @Mappings({
-            //@Mapping(target = "adminRestaurantes", ignore = true),
+            @Mapping(target = "administradores", ignore = true),
             @Mapping(target = "productos", ignore = true),
             @Mapping(target = "compras", ignore = true)
 

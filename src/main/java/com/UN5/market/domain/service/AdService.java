@@ -16,9 +16,11 @@ public class AdService {
         return adRepository.getAdmin(adminId);
     }
 
-    public Admin save(Admin admin){
+    public int save(Admin admin){
         return adRepository.save(admin);
     }
+
+    public void updateAdmin(int adminId,String name, String email,String password){adRepository.updateAdmin(adminId,name,email,password);}
 
     /*public boolean delete(int ad_ID){
         return getAdministrador(ad_ID).map(admin -> {

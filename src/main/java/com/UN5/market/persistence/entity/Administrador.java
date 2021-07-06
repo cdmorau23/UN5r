@@ -1,8 +1,7 @@
 package com.UN5.market.persistence.entity;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "Admin")
@@ -24,8 +23,7 @@ public class Administrador {
             joinColumns = {@JoinColumn(name = "admin_id_admin")},
             inverseJoinColumns = {@JoinColumn(name="restaurante_id_restaurante")}
     )
-    private Set<Restaurante> restaurantes;
-
+    private List<Restaurante> restaurantes;
 
 
     public String getNombre() {
@@ -60,11 +58,11 @@ public class Administrador {
         this.idAdmin = idAdmin;
     }
 
-    public Set<Restaurante> getRestaurantes() {
+    public List<Restaurante> getRestaurantes() {
         return restaurantes;
     }
 
-    public void setRestaurantes(Set<Restaurante> restaurantes) {
+    public void setRestaurantes(List<Restaurante> restaurantes) {
         this.restaurantes = restaurantes;
     }
 }

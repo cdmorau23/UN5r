@@ -9,15 +9,13 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring",uses = {AdminRestMapper.class})
+@Mapper(componentModel = "spring")
 public interface AdminMapper {
     @Mappings({
             @Mapping(source = "idAdmin",target = "adminId"),
             @Mapping(source = "nombre",target = "adminname"),
             @Mapping(source = "correo",target = "admincorreo"),
             @Mapping(source = "contrasenia",target = "admincontrasenia")
-
-
 
 
     })

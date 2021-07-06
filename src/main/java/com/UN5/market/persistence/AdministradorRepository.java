@@ -31,17 +31,24 @@ public class AdministradorRepository implements AdRepository {
     }
 
     @Override
-    public Admin save(Admin admin){
-        Administrador administrador = mapper.toAdministrador(admin);
-        return mapper.toAdmin(adminCrudRepository.save(administrador));
-
+    public int save(Admin admin){
+        int res=0;
+        Administrador administrador = adminJpaRepository.save(mapper.toAdministrador(admin));
+        if(administrador.equals(null)){
+            res= 1;
+        }
+        return res;
     }
+
     @Override
     public void delete(int adminId){
         adminCrudRepository.deleteById(adminId);
     }
 
-
+    @Override
+    public void updateAdmin(int adminId, String name, String email, String password) {
+        adminJpaRepository.updateAdmin(name,email,password,adminId);
+    }
 
 
 }
