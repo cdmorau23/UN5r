@@ -3,6 +3,8 @@ package com.UN5.market.web.frontController;
 import com.UN5.market.domain.Admin;
 import com.UN5.market.domain.Rest;
 import com.UN5.market.domain.service.AdService;
+import com.UN5.market.persistence.crud.AdminCrudRepository;
+import com.UN5.market.persistence.entity.Administrador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -22,6 +25,19 @@ public class WebBuscadorController {
 
     @Autowired
     private AdService adService;
+
+    @Autowired
+    private AdminCrudRepository adminCrudRepository;
+
+    private HttpServletRequest httpServletRequest;
+
+    @GetMapping("/restaurantesBuscador.html")
+    public String restauranteubic(){
+        String email= String.valueOf(httpServletRequest.getUserPrincipal());
+        Administrador admin= adminCrudRepository.findByCorreo(email);
+        Integer id=admin.getIdAdmin();
+        return "/restaurantesBuscador.html/"+id;
+    }
 
     @GetMapping("/restaurantesBuscador.html/{AdminId}")
     public String restaurantesAdminBuscador(@PathVariable("AdminId") int adminId, Model model) {

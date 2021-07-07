@@ -12,9 +12,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    HttpServletRequest httpServletRequest;
 
     @Autowired
     private AdRepository adRepository;
@@ -34,7 +38,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void  configure(HttpSecurity http) throws Exception{
-
         http.authorizeRequests().antMatchers(
                 "/register.html",
                 "/principal.html",
