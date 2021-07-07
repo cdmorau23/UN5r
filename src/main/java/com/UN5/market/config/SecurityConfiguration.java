@@ -18,8 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    HttpServletRequest httpServletRequest;
-
     @Autowired
     private AdRepository adRepository;
 
@@ -43,7 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/principal.html",
                 "/clienteMenu.html",
                 "/carrito.html",
-                "/restauranteAgregarBuscador.html",
+                "/carrito.html",
                 "/js/**",
                 "/css/**",
                 "/assets/**",

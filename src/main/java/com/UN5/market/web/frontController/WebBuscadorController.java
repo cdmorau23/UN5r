@@ -5,13 +5,11 @@ import com.UN5.market.domain.Rest;
 import com.UN5.market.domain.service.AdService;
 import com.UN5.market.persistence.crud.AdminCrudRepository;
 import com.UN5.market.persistence.entity.Administrador;
+import com.UN5.market.persistence.mapper.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -31,12 +29,18 @@ public class WebBuscadorController {
 
     private HttpServletRequest httpServletRequest;
 
-    @GetMapping("/restaurantesBuscador.html")
-    public String restauranteubic(){
-        String email= String.valueOf(httpServletRequest.getUserPrincipal());
-        Administrador admin= adminCrudRepository.findByCorreo(email);
-        Integer id=admin.getIdAdmin();
-        return "/restaurantesBuscador.html/"+id;
+    @Autowired
+    private AdminMapper adminMapper;
+
+    @PostMapping("/carrito.html")
+    public String gorestaurante(@ModelAttribute("correo")Admin usuario){
+        usuario= adminMapper.toAdmin(adminCrudRepository.findByCorreo(usuario.getAdmincorreo()));
+        return "redirect:/restaurantesBuscador.html/"+usuario.getAdminId();
+    }
+
+    @GetMapping ("/carrito.html")
+    public String carrito(){
+        return "carrito";
     }
 
     @GetMapping("/restaurantesBuscador.html/{AdminId}")
@@ -53,6 +57,10 @@ public class WebBuscadorController {
         Admin usuario = adService.getAdministrador(adminId);
         model.addAttribute("usuario",usuario);
         return "restauranteAgregarBuscador";
+    }
+    @ModelAttribute("correo")
+    public Admin admin(){
+        return new Admin();
     }
 
 }

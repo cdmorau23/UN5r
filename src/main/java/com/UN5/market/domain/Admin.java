@@ -13,6 +13,10 @@ public class Admin {
     public Admin(int adminId, String adminname, String admincorreo, String encode, String adminconfcontrasenia, String adminrole) {
     }
 
+    public Admin(String admincorreo) {
+        this.admincorreo = admincorreo;
+    }
+
     public Admin() {
 
     }

@@ -31,10 +31,7 @@ public class WebInitialAndClientController {
         return "clienteMenu";
     }
 
-    @GetMapping ("/carrito.html")
-    public String carrito(){
-        return "carrito";
-    }
+
 
     @GetMapping ("/principal.html")
     public String principal(){

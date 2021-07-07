@@ -6,8 +6,9 @@
     </title>
 </head>
 <body>
-<form th:action="@{/carrito.html}">
-<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<form th:action="@{/carrito.html}" method="post" th:object="${correo}">
+<h1 inline="text">Hello </h1> <input class="form-control" type="text" value="" th:field="*{admincorreo}" th:placeholder="${#httpServletRequest.remoteUser}">
+    <input type="submit" value="Ingresar">
 </form>
 </body>
 <html>
