@@ -53,9 +53,6 @@ public class ProductService {
 
     }
 
-    public void updateProduct(String name, String description, double price, int stock, int productId) {
-        jpaProducto.updateRest(name, description, price, stock, productId);
-    }
 
     /*public boolean delete(int productId) {
         return getProduct(productId).map(product -> {

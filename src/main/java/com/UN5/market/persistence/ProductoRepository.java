@@ -57,8 +57,5 @@ public class ProductoRepository implements ProductRepository {
         return "productoBorrado";
     }
 
-    @Override
-    public void updateProduct(String name, String description, double price, int stock, int productId) {
-        productoJpaRepository.updateRest(name,description,price,stock,productId);
-    }
+
 }
