@@ -12,6 +12,8 @@ public interface ProductRepository {
     Product getProduct(int productId);
     Product save(Product product);
     String delete(int productId);
+    void updateProduct(String name, String description, double price, int stock, int productId);
+    void insertProduct(String name, String description, double price, int stock, int restId);
 
     /*metodos necesarios:
     - dado cierto restaurante obtener la lista de productos asociados a este

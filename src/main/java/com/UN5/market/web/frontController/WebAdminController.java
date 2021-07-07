@@ -30,42 +30,6 @@ public class WebAdminController {
     @Autowired
     private PurchaseService purchaseService;
 
-
-
-
-
-    @GetMapping("/productos.html/{AdminId}/{RestId}")
-    public String productosAdmin(@PathVariable("RestId") int restId,@PathVariable("AdminId") int adminId, Model model){
-        List<Product> productos= ProductService.getByRest(restId);
-        Admin usuario = adService.getAdministrador(adminId);
-        Rest restaurante = RestService.getRest(restId);
-        model.addAttribute("productos",productos);
-        model.addAttribute("usuario",usuario);
-        model.addAttribute("restaurante", restaurante);
-
-        return "productos";
-    }
-
-    @GetMapping ("/productoDetalles.html/{AdminId}/{RestId}/{ProductId}")
-    public String productoDetallesAdmin(@PathVariable("RestId") int restId, @PathVariable("AdminId") int adminId,@PathVariable("ProductId") int productId, Model model){
-        Admin usuario = adService.getAdministrador(adminId);
-        Rest restaurante = RestService.getRest(restId);
-        Product producto = ProductService.getProduct(productId);
-        model.addAttribute("usuario",usuario);
-        model.addAttribute("restaurante", restaurante);
-        model.addAttribute("producto",producto);
-        return "productoDetalles";
-    }
-
-    @GetMapping ("/productoAgregar.html/{AdminId}/{RestId}")
-    public String productoAgregarAdmin(@PathVariable("RestId") int restId,@PathVariable("AdminId") int adminId, Model model){
-        Admin usuario = adService.getAdministrador(adminId);
-        Rest restaurante = RestService.getRest(restId);
-        model.addAttribute("usuario",usuario);
-        model.addAttribute("restaurante", restaurante);
-        return "productoAgregar";
-    }
-
     @GetMapping ("/pedidos.html/{AdminId}/{RestId}")
     public String pedidos(@PathVariable("AdminId") int adminId,@PathVariable("RestId") int restId, Model model){
         Admin usuario = adService.getAdministrador(adminId);

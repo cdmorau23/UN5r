@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -33,6 +34,9 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    public void updateProduct(String name, String description, double price, int stock, int productId){ productRepository.updateProduct(name,description,price,stock,productId);}
+
+    public void insertProduct(String name, String description, double price, int stock, int restId){productRepository.insertProduct(name,description,price,stock,restId);}
 
 
     public void deleteProduct(int productId) throws Exception {
