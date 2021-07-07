@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 @Repository
 public interface AdminJpaRepository extends JpaRepository<Administrador, Integer> {
     @Modifying()
-    @Query(value = "UPDATE admin SET nombre =:name, correo =:email, contraseña=:password WHERE id_admin =:adminid", nativeQuery=true)
+    @Query(value = "UPDATE admin SET nombre =:name, correo =:email, contraseña=:password  WHERE id_admin =:adminid", nativeQuery=true)
     @Transactional
     void updateAdmin(@Param("name") String name, @Param("email") String email, @Param("password") String password, @Param("adminid") int adminId);
 }

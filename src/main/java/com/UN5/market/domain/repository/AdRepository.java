@@ -14,6 +14,9 @@ public interface AdRepository extends UserDetailsService {
     void delete(int adminId);
     public Admin createAdmin(Admin admin)throws  Exception;
 
+    void updateAdmin(int adminId, String name, String email, String password);
+
+
     /*metodos necesarios:
     -Obtener admin por su nombre y contraseña para el login
     -Insercion de admin dados su nombre, correo y contraseña para el register

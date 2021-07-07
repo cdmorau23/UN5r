@@ -64,6 +64,11 @@ public class AdministradorRepository implements AdRepository {
         return admin;
     }
 
+    @Override
+    public void updateAdmin(int adminId, String name, String email, String password) {
+        adminJpaRepository.updateAdmin(name,email,password,adminId);
+    }
+
     private boolean checkPasswordValid(Admin user) throws Exception {
         if ( !user.getAdmincontrasenia().equals(user.getAdminconfcontrasenia())) {
             throw new Exception("Las contraseñas no coinciden.");

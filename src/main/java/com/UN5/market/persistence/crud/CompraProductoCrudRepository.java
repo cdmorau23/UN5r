@@ -6,5 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CompraProductoCrudRepository extends CrudRepository<ComprasProducto, Integer> {
+
     List<ComprasProducto> findByIdIdCompraOrderByProductoNombreAsc(int idCompra);
+    List<ComprasProducto> findByIdIdProductoOrderByProductoNombreAsc(int idProducto);
+
 }

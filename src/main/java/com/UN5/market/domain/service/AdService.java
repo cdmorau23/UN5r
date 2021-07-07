@@ -16,7 +16,7 @@ public class AdService {
         return adRepository.getAdmin(adminId);
     }
 
-    public int save(Admin admin){
+    public Admin save(Admin admin){
         return adRepository.save(admin);
     }
 
