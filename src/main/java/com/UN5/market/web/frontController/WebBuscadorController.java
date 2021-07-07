@@ -52,12 +52,7 @@ public class WebBuscadorController {
         return "restaurantesBuscador";
     }
 
-    @GetMapping ("/restauranteAgregarBuscador.html/{AdminId}")
-    public String restauranteAgregarAdminBuscador(@PathVariable("AdminId") int adminId,Model model){
-        Admin usuario = adService.getAdministrador(adminId);
-        model.addAttribute("usuario",usuario);
-        return "restauranteAgregarBuscador";
-    }
+
     @ModelAttribute("correo")
     public Admin admin(){
         return new Admin();
