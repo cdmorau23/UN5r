@@ -54,6 +54,7 @@ public class ProductService {
     }
 
 
+    public void insertProduct(String name, String description, double price, int stock, int restId){productRepository.insertProduct(name,description,price,stock,restId);}
     /*public boolean delete(int productId) {
         return getProduct(productId).map(product -> {
             productRepository.delete(productId);
