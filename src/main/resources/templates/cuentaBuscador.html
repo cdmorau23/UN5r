@@ -28,18 +28,21 @@
 <body>
 
 <!-- Header -->
-<header class="header full-box">
+<header class="header full-box navbar navbar-dark bg-dark">
+    <a class="navbar-brand">
+        <div id="menu-bar" class="fas fa-hamburger fa-2x text-white"></div>
+    </a>
     <div class="header-options full-box">
         <nav class="header-navbar full-box poppins-regular font-weight-bold" >
             <ul class="list-unstyled full-box">
                 <li>
-                    <a th:href="@{'/restaurantesBuscador.html/' + ${usuario.adminId}}" >Mis restaurantes<span class="full-box" ></span></a>
+                    <a th:href="@{'/restaurantesBuscador.html/' + ${usuario.adminId}}"  class="text-light">Mis restaurantes<span class="full-box" ></span></a>
                 </li>
 
             </ul>
         </nav>
         <div class="header-button full-box text-center btn-login-menu" >
-            <i class="fas fa-user-alt" onclick="show_popup_login()" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Mi cuenta" ></i>
+            <i class="fas fa-user-alt text-light" onclick="show_popup_login()" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Mi cuenta" ></i>
             <div class="div-bordered popup-login">
 
 

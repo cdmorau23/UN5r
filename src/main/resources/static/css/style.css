@@ -97,6 +97,12 @@ body,html{
 	position: relative;
 	color: var(--bs-black);
 }
+
+#menu-bar{
+	left:2%;
+	position: absolute;
+}
+
 .header-brand,
 .header-options{
 	position: absolute;
