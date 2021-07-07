@@ -15,7 +15,8 @@ public interface AdminMapper {
             @Mapping(source = "idAdmin",target = "adminId"),
             @Mapping(source = "nombre",target = "adminname"),
             @Mapping(source = "correo",target = "admincorreo"),
-            @Mapping(source = "contrasenia",target = "admincontrasenia")
+            @Mapping(source = "contrasenia",target = "admincontrasenia"),
+            @Mapping(source = "role", target = "adminrole")
 
 
     })

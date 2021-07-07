@@ -2,15 +2,17 @@ package com.UN5.market.domain.repository;
 
 import com.UN5.market.domain.Admin;
 import com.UN5.market.domain.Rest;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface AdRepository {
+public interface AdRepository extends UserDetailsService {
+    Admin findByAdmincorreo(String correo);
     Admin getAdmin(int adminId);
-    int save(Admin admin);
+    Admin save(Admin admin);
     void delete(int adminId);
-    void updateAdmin(int adminId,String name,String email,String password);
+    public Admin createAdmin(Admin admin)throws  Exception;
 
     /*metodos necesarios:
     -Obtener admin por su nombre y contraseña para el login

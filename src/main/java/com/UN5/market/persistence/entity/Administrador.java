@@ -16,6 +16,10 @@ public class Administrador {
     private String correo;
     @Column(name="contraseña")
     private String contrasenia;
+    @Column(name = "Role")
+    private String role;
+    @Transient
+    private String confirmPassword;
 
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,CascadeType.REFRESH} )
     @JoinTable(
@@ -25,6 +29,21 @@ public class Administrador {
     )
     private List<Restaurante> restaurantes;
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
     public String getNombre() {
         return nombre;

@@ -1,14 +1,47 @@
 package com.UN5.market.domain;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Admin {
     private int adminId;
     private String adminname;
     private String admincorreo;
     private String admincontrasenia;
+    private String adminconfcontrasenia;
+    private String adminrole;
+
+    public Admin(int adminId, String adminname, String admincorreo, String encode, String adminconfcontrasenia, String adminrole) {
+    }
+
+    public Admin() {
+
+    }
+
+    //private List<AdminRest> admin;
+
+    /*public List<AdminRest> getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(List<AdminRest> admin) {
+        this.admin = admin;
+    }*/
+
+    public String getAdminconfcontrasenia() {
+        return adminconfcontrasenia;
+    }
+
+    public void setAdminconfcontrasenia(String adminconfcontrasenia) {
+        this.adminconfcontrasenia = adminconfcontrasenia;
+    }
+
+    public String getAdminrole() {
+        return adminrole;
+    }
+
+    public void setAdminrole(String adminrole) {
+        this.adminrole = adminrole;
+    }
 
     public int getAdminId() {
         return adminId;
