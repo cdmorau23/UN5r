@@ -26,4 +26,5 @@ public interface ProductoJpaRepository extends JpaRepository <Producto, Integer>
     void removeProductoByRestaurante(@Param("idrestaurante") int restauranteId);
 
 
+    void updateRest(String name, String description, double price, int stock, int productId);
 }
