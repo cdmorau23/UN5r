@@ -25,6 +25,7 @@ public interface ProductoJpaRepository extends JpaRepository <Producto, Integer>
             "WHERE restaurante_id_restaurante =:idrestaurante;", nativeQuery=true)
     @Transactional
     void removeProductoByRestaurante(@Param("idrestaurante") int restauranteId);
+
     @Modifying()
     @Query(value = "UPDATE productos SET nombre =:name, descripcion =:description, precio_venta =:price, cantidad_stock =:stock WHERE id_producto =:productoid", nativeQuery=true)
     @Transactional

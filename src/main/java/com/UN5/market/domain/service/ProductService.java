@@ -53,6 +53,9 @@ public class ProductService {
 
     }
 
+    public void updateProduct(String name, String description, double price, int stock, int productId) {
+        jpaProducto.updateProduct(name, description, price, stock, productId);
+    }
 
     public void insertProduct(String name, String description, double price, int stock, int restId){productRepository.insertProduct(name,description,price,stock,restId);}
     /*public boolean delete(int productId) {

@@ -48,7 +48,12 @@ public class WebProductoController {
         return "productoDetalles";
     }
 
-
+    @PostMapping("/productoDetalles.html/{AdminId}/{RestId}/{ProductId}")
+    public String actualizarProducto(@ModelAttribute("producto") Product product, @PathVariable("AdminId") int adminId, @PathVariable("RestId") int restId, @PathVariable("ProductId") int productId){
+        productService.updateProduct(product.getName(),product.getDescription(),product.getPrice(),product.getStock(),product.getProductId());
+        String redirect= "redirect:/productoDetalles.html/"+ adminId + "/" + restId + "/" + productId + "?success";
+        return redirect;
+    }
 
     @GetMapping ("/productoAgregar.html/{AdminId}/{RestId}")
     public String productoAgregarAdmin(@PathVariable("RestId") int restId,@PathVariable("AdminId") int adminId, Model model){
