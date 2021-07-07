@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <title>Login Form Design One | Fazt</title>
@@ -36,12 +36,18 @@
     <div class="login-box">
       <h1>Bienvenido!</h1>
       <h2>Por favor ingrese sus datos: </h2>
-      <form>
+      <form th:action="@{/login.html}" method="post">
         <div class = "input-box">
           <label for="username">Usuario</label>
-          <input id="username" type="text" placeholder="Ejemplo@gmail.com" required>
+          <input class="form-control" id="username" name="username" type="email" placeholder="Ejemplo@gmail.com" required>
           <label for="password">Contraseña</label>
-          <input id="password" type="password" placeholder="Ingresa tu contraseña" required>
+          <input class="form-control" id="password" name="password" type="password" placeholder="Ingresa tu contraseña" required>
+        </div>
+        <div th:if="${param.error}">
+          <div class="alert alert-danger">Usuario y/o contraseña incorrecta</div>
+        </div>
+        <div th:if="${param.logout}">
+          <div class="alert alert-danger">Has cerrado sesion con exito.</div>
         </div>
         <input type="submit" value="Ingresar">
         <a class="nocue" href="register.html">No tienes una cuenta?</a>

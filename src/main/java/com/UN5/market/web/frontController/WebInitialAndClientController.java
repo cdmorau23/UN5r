@@ -2,6 +2,7 @@ package com.UN5.market.web.frontController;
 
 import com.UN5.market.domain.Product;
 import com.UN5.market.domain.Rest;
+import com.UN5.market.persistence.jpa.AdminJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,10 +46,6 @@ public class WebInitialAndClientController {
         return "login";
     }
 
-    @GetMapping ("/register.html")
-    public String register(){
-        return "register";
-    }
 
 
 }

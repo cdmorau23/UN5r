@@ -7,6 +7,15 @@ public class Admin {
     private String adminname;
     private String admincorreo;
     private String admincontrasenia;
+    private String adminconfcontrasenia;
+    private String adminrole;
+
+    public Admin(int adminId, String adminname, String admincorreo, String encode, String adminconfcontrasenia, String adminrole) {
+    }
+
+    public Admin() {
+
+    }
 
     //private List<AdminRest> admin;
 
@@ -17,6 +26,22 @@ public class Admin {
     public void setAdmin(List<AdminRest> admin) {
         this.admin = admin;
     }*/
+
+    public String getAdminconfcontrasenia() {
+        return adminconfcontrasenia;
+    }
+
+    public void setAdminconfcontrasenia(String adminconfcontrasenia) {
+        this.adminconfcontrasenia = adminconfcontrasenia;
+    }
+
+    public String getAdminrole() {
+        return adminrole;
+    }
+
+    public void setAdminrole(String adminrole) {
+        this.adminrole = adminrole;
+    }
 
     public int getAdminId() {
         return adminId;
