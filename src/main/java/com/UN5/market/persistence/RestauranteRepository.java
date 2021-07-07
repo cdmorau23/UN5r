@@ -45,4 +45,9 @@ public class RestauranteRepository implements RestRepository {
         List<Restaurante> restaurantes= adminJpaRepository.getOne(adminId).getRestaurantes();
         return mapper.toRests(restaurantes);
     }
+
+    @Override
+    public void updateRest(String name, String slogan, int tableTotal, int restId) {
+        restauranteJpaRepository.updateRest(name,slogan,tableTotal,restId);
+    }
 }

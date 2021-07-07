@@ -97,15 +97,6 @@ public class WebAdminController {
         return "estadisticas";
     }
 
-    @GetMapping ("/localDatos.html/{AdminId}/{RestId}")
-    public String localDatosAdmin(@PathVariable("RestId") int restId,@PathVariable("AdminId") int adminId, Model model){
-        Rest restaurante= RestService.getRest(restId);
-        Admin usuario = adService.getAdministrador(adminId);
-        model.addAttribute("restaurante",restaurante);
-        model.addAttribute("usuario",usuario);
-        return "localDatos";
-    }
-
 
 
 }

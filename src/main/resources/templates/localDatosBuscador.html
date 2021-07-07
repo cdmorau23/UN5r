@@ -20,6 +20,8 @@
     <!-- General Styles -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
+    <link rel="stylesheet" th:href="@{/css/cuenta.css}">
+
 </head>
 <style type="text/css">
     table, th, td{
@@ -72,76 +74,110 @@
 <div class="container container-web-page">
     <h3 class="font-weight-bold poppins-regular text-uppercase">Detalles del restaurante</h3>
     <hr>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-lg-5">
-                <!--cover-->
-                <figure class="full-box">
-                    <img class="img-fluid" th:src="@{/assets/img/logo1.png}" alt="restaurante">
-                </figure>
 
-            </div>
-            <div class="col-12 col-lg-7">
+    <div class="container">
+        <div class="card">
 
+            <div class="additional" id="additional">
+                <div class="user-card">
 
-                <!-- Modificar cuenta -->
-                <form action="" style="padding-top: 70px;">
-                    <fieldset id="campo" disabled="true">
-
-                        <div class="form-input mb-4">
-
-                            <span class="text-info lead font-weight-bold">Nombre de restaurante:</span>
-                            <input type="text"  value="" class="form-control text-center"
-                                   id="InNameAccount" required="" th:placeholder="${restaurante.noombrerest}" pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="restaurante" >
-
-                        </div>
-
-                        <div class="form-input mb-4">
-
-                            <span class="text-info lead font-weight-bold">Slogan del restaurante:</span>
-
-                            <input type="text" value="" class="form-control text-center"
-                                   id="contacto" required="" th:placeholder="${restaurante.sloganrest}"  pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Slogan" >
-
-                        </div>
-
-
-                        <div class="form-input mb-4">
-
-                            <span class="text-info lead font-weight-bold">Numero de mesas:</span>
-
-                            <input type="text" value="" class="form-control text-center"
-                                   id="mesas" required="" th:placeholder="${restaurante.totalTablerest}"  pattern="[0-9]{1,10}" maxlength="10" title="Se permiten solo valores numericos" >
-
-                        </div>
-
-                    </fieldset>
-
-                    <div class="form-input mb-4">
-
-                        <span class="text-info lead font-weight-bold">Total en ventas: $</span>
-
-                        <input type="text" value="" class="form-control text-center"
-                               id="totalVentas" disabled="true" placeholder="$?" required="" pattern="[0-9]{1,10}" maxlength="10" title="Se permiten solo valores numericos" >
-
+                    <div th:if="${param.success}">
+                        <dialog id="ms" open>
+                            <p>Has actualizado el restaurante correctamente</p>
+                            <button class="btn btn-raised btn-primary btn-sm w-100" id="close" onclick="document.getElementById('ms').close()">Ok!</button>
+                        </dialog>
                     </div>
 
-                    <div class="container-fluid">
-                        <div class="row">
+                    <div class="col-12 col-lg-5">
+                        <!--cover-->
+                        <figure class="full-box">
+                            <img class="perfilimg center img-fluid" th:src="@{/assets/img/logo1.png}" alt="Usuario">
+                        </figure>
 
-                            <div class="col-12 col-md-6 text">
-                                <button type="submit" id="actualizar"
-                                        onclick="document.getElementById('campo').disabled = false" class="btn btn-info btn-sm"><i class="fas fa-sync fa-fw" title="Actualice datos del administrador"></i> &nbsp; Actualizar</button>                            </div>
-                            <div class="col-12 col-md-6 text">
-                                <button href="#"class="btn btn-raised btn-primary btn-sm w-100" title="eliminar local"><i class="fas fa-times fa-fw"></i> &nbsp; Eliminar local</button>
+                    </div>
+                </div>
+                <div class="more-info">
+
+                    <!-- Funcionalidad de actualizacion de datos de usuario -->
+                    <h1>Actualización de restaurante</h1>
+                    <form th:action="@{'/localDatosBuscador.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" th:object="${restaurante}" method="POST" >
+                        <div class="form-group mb-4" >
+
+                            <label for="name" class="text-light lead font-weight-bold">Nombre del restaurante:</label>
+                            <input type="text"  value="" class="form-control text-center"
+                                   th:field="*{noombrerest}" id="name" th:placeholder="${restaurante.noombrerest}" required pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Nombre restaurante" >
+
+                        </div>
+
+                        <div class="form-group mb-4">
+
+                            <label for="slogan" class="text-light lead font-weight-bold">Slogan del restaurante:</label>
+
+                            <input type="text" value="" class="form-control text-center"
+                                   th:field="*{sloganrest}" id="slogan" th:placeholder="${restaurante.sloganrest}" required pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ@. ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="escribir slogan" >
+
+                        </div>
+
+                        <div class="form-group mb-4">
+
+                            <label for="totaltables" class="text-light lead font-weight-bold">Numero de mesas:</label>
+
+                            <input type="text" value="" class="form-control text-center"
+                                   th:field="*{totalTablerest}" id="totaltables" th:placeholder="${restaurante.totalTablerest}" required pattern="{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="escribir total de mesas" >
+
+                        </div>
+
+                        <input type="hidden" th:field="*{idrest}">
+
+                        <div class="row">
+                            <div class="col-6 col-md-6 text" >
+
+                                <button type="submit" id="confirmar_actualizar" class="btn btn-info btn-sm btn-success" >confirmar actualizacion</button>
+                            </div>
+
+                            <div class="col-6 col-md-6 text" >
+
+                                <input type="button" id="volver"
+                                       onclick="document.getElementById('additional').style.width='40%';" class="btn btn-danger btn-sm" value="volver"></input>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
 
+
+
+                </div>
+            </div>
+
+            <!--Datos de perfil del usuario-->
+            <div class="general">
+                <h1>Datos de restaurante</h1>
+
+                <span class="text-dark lead font-weight-bold">Nombre de restaurante:</span>
+                <p class="dato" th:text="${restaurante.noombrerest}"></p>
+
+                <span class="text-dark lead font-weight-bold">Slogan del restaurante:</span>
+                <p class="dato" th:text="${restaurante.sloganrest}"></p>
+
+                <span class="text-dark lead font-weight-bold">Numero de mesas:</span>
+                <p class="dato" th:text="${restaurante.totalTablerest}"></p>
+
+                <span class="text-dark lead font-weight-bold">Total en ventas:</span>
+                <p class="dato">$?</p>
+
+                <div class="row">
+                    <div class="col-6 col-md-6 text" >
+
+                        <button onclick="document.getElementById('additional').style.width='100%'" id="actualizar" class="btn btn-info btn-sm"><i class="fas fa-sync fa-fw" title="Ver actualizacion de restaurante"></i> &nbsp; Actualizar</button>
+                    </div>
+                    <div class="col-6 col-md-6 text">
+                        <button href="#"class="btn btn-raised btn-danger btn-sm w-100" title="eliminar local"><i class="fas fa-times fa-fw"></i> &nbsp; Eliminar local</button>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
+
 </div>
 
 

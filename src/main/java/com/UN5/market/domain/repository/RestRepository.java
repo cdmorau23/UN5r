@@ -10,6 +10,7 @@ public interface RestRepository {
     Rest save(Rest rest);
     void delete(int restId);
     List<Rest> adminRests(int adminId);
+    void updateRest(String name, String slogan, int tableTotal, int restId);
 
     /*metodos necesarios:
     - dado cierto id de administrador obtener la lista de todos los restaurantes asociados a este

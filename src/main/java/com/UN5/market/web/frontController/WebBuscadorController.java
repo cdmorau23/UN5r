@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -38,12 +39,4 @@ public class WebBuscadorController {
         return "restauranteAgregarBuscador";
     }
 
-    @GetMapping ("/localDatosBuscador.html/{AdminId}/{RestId}")
-    public String localDatosAdminBuscador(@PathVariable("RestId") int restId, @PathVariable("AdminId") int adminId, Model model){
-        Admin usuario = adService.getAdministrador(adminId);
-        Rest restaurante = RestService.getRest(restId);
-        model.addAttribute("usuario",usuario);
-        model.addAttribute("restaurante", restaurante);
-        return "localDatosBuscador";
-    }
 }

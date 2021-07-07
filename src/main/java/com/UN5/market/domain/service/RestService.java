@@ -23,4 +23,8 @@ public class RestService {
     }
 
     public List<Rest> getByAdmin(int adminId) {return restRepository.adminRests(adminId);}
+
+    public void updateRest(String nombre, String slogan, int tableTotal, int restId){
+        restRepository.updateRest(nombre,slogan,tableTotal,restId);
+    }
 }
