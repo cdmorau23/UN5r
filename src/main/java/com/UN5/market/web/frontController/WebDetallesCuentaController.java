@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping
-public class WebCuentaController {
+public class WebDetallesCuentaController {
 
     @Autowired
     private com.UN5.market.domain.service.RestService RestService;
