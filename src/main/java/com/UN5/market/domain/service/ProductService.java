@@ -29,6 +29,8 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    public void updateProduct(String name, String description, double price, int stock, int productId){ productRepository.updateProduct(name,description,price,stock,productId);}
+
     /*public boolean delete(int productId) {
         return getProduct(productId).map(product -> {
             productRepository.delete(productId);

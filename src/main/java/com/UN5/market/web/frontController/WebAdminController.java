@@ -46,17 +46,6 @@ public class WebAdminController {
         return "productos";
     }
 
-    @GetMapping ("/productoDetalles.html/{AdminId}/{RestId}/{ProductId}")
-    public String productoDetallesAdmin(@PathVariable("RestId") int restId, @PathVariable("AdminId") int adminId,@PathVariable("ProductId") int productId, Model model){
-        Admin usuario = adService.getAdministrador(adminId);
-        Rest restaurante = RestService.getRest(restId);
-        Product producto = ProductService.getProduct(productId);
-        model.addAttribute("usuario",usuario);
-        model.addAttribute("restaurante", restaurante);
-        model.addAttribute("producto",producto);
-        return "productoDetalles";
-    }
-
     @GetMapping ("/productoAgregar.html/{AdminId}/{RestId}")
     public String productoAgregarAdmin(@PathVariable("RestId") int restId,@PathVariable("AdminId") int adminId, Model model){
         Admin usuario = adService.getAdministrador(adminId);

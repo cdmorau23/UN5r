@@ -51,4 +51,9 @@ public class ProductoRepository implements ProductRepository {
     public void delete(int productId) {
         productoCrudRepository.deleteById(productId);
     }
+
+    @Override
+    public void updateProduct(String name, String description, double price, int stock, int productId) {
+        productoJpaRepository.updateRest(name,description,price,stock,productId);
+    }
 }
