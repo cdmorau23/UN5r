@@ -5,6 +5,7 @@ import com.UN5.market.domain.service.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,5 +29,14 @@ public class RestControler {
     @PostMapping("/save")
     public ResponseEntity<Rest> save(@RequestBody Rest rest){
         return new ResponseEntity<>(restService.save(rest), HttpStatus.CREATED);
+    }
+    @GetMapping("/deleteRestaurante/{id}")
+    public String deleteCompra(Model model, @PathVariable(name="id") int restauranteId) {
+        try {
+            restService.removeRestaurant(restauranteId);
+        } catch (Exception e) {
+            model.addAttribute("deleteError","The user product not be deleted.");
+        }
+        return "BorrasteUnRestaurante"+restService.getRest(restauranteId).getNoombrerest();
     }
 }

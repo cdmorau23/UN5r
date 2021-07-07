@@ -11,7 +11,7 @@ public interface ProductRepository {
     List<Product> getByRest(int restId);
     Product getProduct(int productId);
     Product save(Product product);
-    void delete(int productId);
+    String delete(int productId);
 
     /*metodos necesarios:
     - dado cierto restaurante obtener la lista de productos asociados a este

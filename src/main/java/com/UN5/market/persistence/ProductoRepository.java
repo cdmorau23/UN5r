@@ -3,6 +3,7 @@ package com.UN5.market.persistence;
 import com.UN5.market.domain.Product;
 import com.UN5.market.domain.repository.ProductRepository;
 import com.UN5.market.persistence.crud.ProductoCrudRepository;
+import com.UN5.market.persistence.entity.ComprasProductoPK;
 import com.UN5.market.persistence.jpa.ProductoJpaRepository;
 import com.UN5.market.persistence.mapper.ProductMapper;
 import com.UN5.market.persistence.entity.Producto;
@@ -15,6 +16,8 @@ import java.util.Optional;
 
 @Service
 public class ProductoRepository implements ProductRepository {
+
+
     @Autowired
     private ProductoCrudRepository productoCrudRepository;
 
@@ -41,6 +44,7 @@ public class ProductoRepository implements ProductRepository {
         return mapper.toProducts(productos);
     }
 
+
     @Override
     public Product save(Product product) {
         Producto producto = mapper.toProducto(product);
@@ -48,7 +52,8 @@ public class ProductoRepository implements ProductRepository {
     }
 
     @Override
-    public void delete(int productId) {
+    public String delete(int productId) {
         productoCrudRepository.deleteById(productId);
+        return "productoBorrado";
     }
 }

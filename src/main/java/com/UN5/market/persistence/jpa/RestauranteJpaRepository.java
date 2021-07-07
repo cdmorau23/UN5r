@@ -13,4 +13,10 @@ public interface RestauranteJpaRepository extends JpaRepository<Restaurante, Int
     @Query(value = "UPDATE restaurante SET nombre =:name, slogan =:slogan, total_mesas =:tabletotal WHERE id_restaurante =:restid", nativeQuery=true)
     @Transactional
     void updateRest(@Param("name") String name, @Param("slogan") String slogan, @Param("tabletotal") int tableTotal, @Param("restid") int restId);
+
+    @Query(value = "DELETE FROM public.restaurante " +
+            "WHERE id_restaurante =:idrestaurante;", nativeQuery=true)
+    @Transactional
+    void removeRestaurante(@Param("idrestaurante") int RestauranteId);
+
 }
