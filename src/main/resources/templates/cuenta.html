@@ -27,30 +27,33 @@
 <body>
 
 <!-- Header -->
-<header class="header full-box">
+<header class="header full-box navbar navbar-dark bg-dark">
+    <a class="navbar-brand">
+        <div id="menu-bar" class="fas fa-hamburger fa-2x text-white"></div>
+    </a>
     <div class="header-options full-box">
-        <nav class="header-navbar full-box poppins-regular font-weight-bold"  >
+        <nav class="header-navbar full-box poppins-regular font-weight-bold" >
             <ul class="list-unstyled full-box">
                 <li>
-                    <a th:href="@{'/productos.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" >Productos<span class="full-box" ></span></a>
+                    <a th:href="@{'/productos.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" class="text-light">Productos<span class="full-box" ></span></a>
                 </li>
                 <li>
-                    <a th:href="@{'/pedidos.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" >Pedidos<span class="full-box" ></span></a>
+                    <a th:href="@{'/pedidos.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" class="text-light">Pedidos<span class="full-box" ></span></a>
                 </li>
                 <li>
-                    <a th:href="@{'/estadisticas.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" >Estadisticas<span class="full-box" ></span></a>
+                    <a th:href="@{'/estadisticas.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" class="text-light">Estadisticas<span class="full-box" ></span></a>
                 </li>
                 <li>
-                    <a th:href="@{'/localDatos.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" >Datos del local<span class="full-box" ></span></a>
+                    <a th:href="@{'/localDatos.html/' + ${usuario.adminId} + '/' + ${restaurante.idrest}}" class="text-light">Datos del local<span class="full-box" ></span></a>
                 </li>
                 <li>
-                    <a th:href="@{'/restaurantesBuscador.html/' + ${usuario.adminId}}" >Regresar a restaurantes<span class="full-box" ></span></a>
+                    <a th:href="@{'/restaurantesBuscador.html/' + ${usuario.adminId}}" class="text-light">Regresar a restaurantes<span class="full-box" ></span></a>
                 </li>
 
             </ul>
         </nav>
         <div class="header-button full-box text-center btn-login-menu" >
-            <i class="fas fa-user-alt" onclick="show_popup_login()" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Mi cuenta" ></i>
+            <i class="fas fa-user-alt text-light" onclick="show_popup_login()" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Mi cuenta" ></i>
             <div class="div-bordered popup-login">
 
 
